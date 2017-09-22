@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_color">#000000</color>
+
+    <color name="base_text_color_light">#909090</color>
+    <color name="base_loading_background">#f7f7f7</color>
+
+    <color name="app_color_pressed">#5BCAA7</color>
+    <color name="app_drawable_color_pressed">@color/app_color_pressed</color>
+    <color name="app_item_divider_color">#D6D6D6</color>
+    <color name="app_drawable_color_normal">@color/app_color</color>
+    <color name="app_item_bg_color_pressed">#f7f7f7</color>
+
+    <color name="main_tab_item_text_normal_color">#909090</color>
+    <color name="main_tab_item_text_pressed_color">#4b4b4b</color>
+    <color name="main_tab_item_bg_normal_color">#fafafa</color>
+    <color name="main_tab_item_bg_pressed_color">#fafafa</color>
+
+    <color name="colorGray">#848383</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorText">#cccac9</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="app_content_bg_color">#f2f2f2</color>
+    <color name="discovertory_tab_text_color">#808080</color>
+    <color name="app_color_gray">#7C7C7C</color>
+
+</resources>

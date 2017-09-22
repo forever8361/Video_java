@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.wwssxx.kaiyan.module.main.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fragments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/main_tab_height" />
+
+    <RelativeLayout
+        android:id="@+id/rl_radigroup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/app_item_divider_color"
+        android:paddingTop="1px">
+
+
+        <RadioGroup
+            android:id="@+id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/main_tab_height"
+            android:background="@color/main_tab_item_bg_normal_color"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/tab_home_btn"
+                style="@style/MainTabItemStyle"
+                android:checked="true"
+                android:drawableTop="@drawable/main_tab_home_icon"
+                android:text="@string/main_tab_home_text"/>
+
+            <RadioButton
+                android:id="@+id/tab_discover_btn"
+                style="@style/MainTabItemStyle"
+                android:drawableTop="@drawable/main_tab_discover_icon"
+                android:text="@string/main_tab_discover_text"/>
+            <RadioButton
+                android:id="@+id/tab_conversation_btn"
+                style="@style/MainTabItemStyle"
+                android:drawableTop="@drawable/main_tab_attention_icon"
+                android:text="@string/main_tab_attention_text"/>
+
+
+            <RadioButton
+                android:id="@+id/tab_me_btn"
+                style="@style/MainTabItemStyle"
+                android:drawableTop="@drawable/main_tab_me_icon"
+                android:text="@string/main_tab_me_text"/>
+
+        </RadioGroup>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,237 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:background="@color/app_content_bg_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/include_header"/>
+
+        <com.jayfeng.lesscode.core.other.SpaceDividerView style="@style/MeDividerStyle"/>
+
+        <RelativeLayout
+            android:id="@+id/me_container"
+            style="@style/MeItemStyle"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/avatar_container"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/me_avatar"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/app_image_loading"
+                        app:riv_border_color="#88ffffff"
+                        app:riv_border_width="2dp"
+                        app:riv_oval="true"/>
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/me_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/avatar_container"
+                    android:text="用户名"
+                    android:textColor="#494949"
+                    android:textSize="16sp"/>
+
+
+                <ImageView
+                    android:id="@+id/me_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/app_arrow_next"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/visit_container"
+                style="@style/MeItemStyle"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    style="@style/MeItemTitleStyle"
+                    android:text="我的收藏"/>
+
+                <ImageView
+                    android:id="@+id/visit_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/app_arrow_next"/>
+
+            </RelativeLayout>
+
+            <com.jayfeng.lesscode.core.other.SpaceDividerView style="@style/MePaddingDividerStyle"/>
+
+            <RelativeLayout
+                android:id="@+id/like_container"
+                style="@style/MeItemStyle"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    style="@style/MeItemTitleStyle"
+                    android:text="我的评论"/>
+
+                <ImageView
+                    android:id="@+id/like_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/app_arrow_next"/>
+
+            </RelativeLayout>
+
+            <com.jayfeng.lesscode.core.other.SpaceDividerView style="@style/MePaddingDividerStyle"/>
+
+            <RelativeLayout
+                android:id="@+id/account_container"
+                style="@style/MeItemStyle"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    style="@style/MeItemTitleStyle"
+                    android:text="我的缓存"/>
+
+                <ImageView
+                    android:id="@+id/account_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/app_arrow_next"/>
+
+            </RelativeLayout>
+
+            <com.jayfeng.lesscode.core.other.SpaceDividerView style="@style/MePaddingDividerStyle"/>
+
+            <RelativeLayout
+                android:id="@+id/point_container"
+                style="@style/MeItemStyle"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    style="@style/MeItemTitleStyle"
+                    android:text="观看历史"/>
+
+                <ImageView
+                    android:id="@+id/point_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/app_arrow_next"/>
+            </RelativeLayout>
+
+            <com.jayfeng.lesscode.core.other.SpaceDividerView style="@style/MePaddingDividerStyle"/>
+
+            <RelativeLayout
+                android:id="@+id/gift_container"
+                style="@style/MeItemStyle"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    style="@style/MeItemTitleStyle"
+                    android:text="意见反馈"/>
+
+                <ImageView
+                    android:id="@+id/gift_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/app_arrow_next"/>
+            </RelativeLayout>
+
+            <com.jayfeng.lesscode.core.other.SpaceDividerView style="@style/MePaddingDividerStyle"/>
+
+            <RelativeLayout
+                android:id="@+id/share_container"
+                style="@style/MeItemStyle"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    style="@style/MeItemTitleStyle"
+                    android:text="应用分享"/>
+
+                <ImageView
+                    android:id="@+id/share_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/app_arrow_next"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/setting_container"
+                style="@style/MeItemStyle"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp">
+
+                <TextView
+                    style="@style/MeItemTitleStyle"
+                    android:text="设置"/>
+
+                <ImageView
+                    android:id="@+id/setting_next_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/app_arrow_next"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

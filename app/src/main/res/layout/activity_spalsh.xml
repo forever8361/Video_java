@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:id="@+id/rl"
+                android:background="@drawable/landing_background"
+    >
+
+    <ImageView
+        android:id="@+id/splash_iv"
+        android:layout_width="61dp"
+        android:layout_height="42dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/ic_action_focus_white_no_margin"/>
+
+    <com.wwssxx.kaiyan.widget.CustomTextView
+        android:id="@+id/spash_tv_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splash_iv"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="KaiYanVideo"
+        android:textColor="@color/colorWhite"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/spash_tv_zh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spash_tv_english"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="开 眼 视 频"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"/>
+
+    <com.wwssxx.kaiyan.widget.CustomTextView
+        android:id="@+id/spash_tv_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="16dp"
+        android:text="Daily appetizers for your eyes，Bon eyepetit"
+        android:textColor="@color/colorWhite"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:text="每日精选视频推介，让你大开眼界。"
+        android:textColor="@color/colorWhite"/>
+</RelativeLayout>

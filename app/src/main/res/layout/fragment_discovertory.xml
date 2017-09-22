@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tl="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    >
+
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/tabs_container"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/header_bg_color"
+        >
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tl:tl_indicator_color="@color/colorBlack"
+            tl:tl_indicator_gravity="BOTTOM"
+            tl:tl_indicator_height="4dp"
+            tl:tl_indicator_margin_top="6dp"
+            tl:tl_indicator_width="16dp"
+            tl:tl_tab_padding="10dp"
+            tl:tl_tab_space_equal="true"
+            tl:tl_textSelectColor="@color/colorBlack"
+            tl:tl_textUnselectColor="@color/discovertory_tab_text_color"
+            tl:tl_textsize="14sp"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@color/app_item_divider_color"/>
+    </RelativeLayout>
+
+
+    <com.wwssxx.kaiyan.widget.NoScrollViewPager
+        android:id="@+id/viewpager_discovery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabs_container"
+        android:background="@color/app_content_bg_color"/>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/toobar_left_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/app_list_item_transparent"
+            android:gravity="center_vertical"
+            android:padding="3dp"
+            android:text="全部分类"/>
+
+        <com.wwssxx.kaiyan.widget.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="LezVideo"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/main_toolbar_iv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/app_list_item_transparent"
+            android:src="@drawable/ic_action_search"/>
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

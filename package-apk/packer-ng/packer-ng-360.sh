@@ -1,0 +1,1 @@
+python PackerNg-1.0.7.py com.lez.monking-360-V0.22.459-22.encrypted_sign.apk markets-360.txt output

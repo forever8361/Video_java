@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="60dp"
+              android:background="#ffffff">
+
+    <com.wwssxx.kaiyan.widget.ShangshabanChangeTextSpaceView
+        android:id="@+id/tv_textheader_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:text="这是标题"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"/>
+</LinearLayout>

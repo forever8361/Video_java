@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/colorWhite</color>
+    <color name="colorPrimaryDark">@color/colorWhite</color>
+    <color name="colorAccent">@color/colorWhite</color>
+
+
+    <!-- header view -->
+    <color name="header_bg_color">#FFFFFF</color>
+    <color name="header_menu_text_normal_color">#4b4b4b</color>
+    <color name="header_menu_text_pressed_color">#3b3b3b</color>
+    <color name="header_title_text_color">#4b4b4b</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="light_green">#89F9DF</color>
+    <color name="live_yellow">#E1AF4A</color>
+</resources>
