@@ -3,9 +3,11 @@ package com.wwssxx.kaiyan.module.discover;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.wwssxx.kaiyan.R;
 import com.wwssxx.kaiyan.base.BaseActivity;
 
+@Route(path = "/test/activity")
 public class AuthorAllActivity extends BaseActivity {
 
     @Override

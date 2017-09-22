@@ -1,12 +1,8 @@
 package com.wwssxx.kaiyan.module.main;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.util.Pair;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.jayfeng.lesscode.core.AdapterLess;
 import com.jayfeng.lesscode.core.LogLess;
 import com.jayfeng.lesscode.core.ToastLess;
@@ -25,7 +22,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.wwssxx.kaiyan.R;
 import com.wwssxx.kaiyan.general.GlideImageLoader;
 import com.wwssxx.kaiyan.model.SelectdEntiry;
-import com.wwssxx.kaiyan.module.video.VideoDetailActivity;
 import com.wwssxx.kaiyan.repository.ConfigRepository;
 import com.wwssxx.kaiyan.widget.LoadingLayout;
 
@@ -207,15 +203,17 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-                if (!"video".equals(itemListBean.getType())) {
-                    return;
-                }
-                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), new Pair<View, String>(imageView, VideoDetailActivity.SHARED_ELEMENT_PHOTO));
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(VideoDetailActivity.KEY_VIDEO, itemListBean);
-                Intent intent = new Intent(getActivity(), VideoDetailActivity.class);
-                intent.putExtras(bundle);
-                ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
+                ARouter.getInstance().build("/test/activity").navigation();
+
+//                if (!"video".equals(itemListBean.getType())) {
+//                    return;
+//                }
+//                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), new Pair<View, String>(imageView, VideoDetailActivity.SHARED_ELEMENT_PHOTO));
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable(VideoDetailActivity.KEY_VIDEO, itemListBean);
+//                Intent intent = new Intent(getActivity(), VideoDetailActivity.class);
+//                intent.putExtras(bundle);
+//                ActivityCompat.startActivity(getActivity(), intent, options.toBundle());
 
             }
         });
