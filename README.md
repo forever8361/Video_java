@@ -1,14 +1,3 @@
-# 张东方-LezVideo
-这是一个类似开眼的一个视频应用，以下是Android端的工作开展。
-
-
-* 开发人员：张东方 
-* 周期：2周
-* 工作量：30个界面
-
-![Screenshot_2017-03-01-16-32-54.png](https://pm-box.tisp.com/public/7,039a889e4173)![Screenshot_2017-03-01-16-33-04.png](https://pm-box.tisp.com/public/5,039bc0ee11d5)
-![Screenshot_2017-03-01-16-33-11.png](https://pm-box.tisp.com/public/3,039ccb95e350)![Screenshot_2017-03-01-16-33-17.png](https://pm-box.tisp.com/public/3,039d9374acbd)
-![Screenshot_2017-03-01-16-33-24.png](https://pm-box.tisp.com/public/6,039e3c10a526)![Screenshot_2017-03-01-16-33-33.png](https://pm-box.tisp.com/public/4,039fa1e3138c)
 ## 1.服务端概要设计
 #### 1.1系统架构
 ![LezVideo_Project_Architecture](https://pm-box.tisp.com/public/4,01dd1bd24098)

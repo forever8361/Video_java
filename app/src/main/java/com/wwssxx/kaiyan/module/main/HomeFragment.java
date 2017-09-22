@@ -17,8 +17,11 @@ import android.widget.TextView;
 
 import com.jayfeng.lesscode.core.AdapterLess;
 import com.jayfeng.lesscode.core.LogLess;
+import com.jayfeng.lesscode.core.ToastLess;
 import com.jayfeng.lesscode.core.ViewLess;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.wwssxx.kaiyan.R;
@@ -56,7 +59,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         initView(rootView);
-        requestData();
         return rootView;
     }
 
@@ -67,20 +69,29 @@ public class HomeFragment extends Fragment {
         mRecyclerView = ViewLess.$(view, R.id.recyclerview);
         mLoadingView = ViewLess.$(view, R.id.loading);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mLoadingView.setStatus(LoadingLayout.Loading);
+        mRefreshLayout.setEnableAutoLoadmore(true);
+        mRefreshLayout.setRefreshFooter(new BallPulseFooter(getActivity()).setSpinnerStyle(SpinnerStyle.Scale));
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-                refreshlayout.finishRefresh(2000);
+                new android.os.Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        requestData();
+                    }
+                },1000);
             }
         });
         mRefreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
             @Override
             public void onLoadmore(RefreshLayout refreshlayout) {
+                ToastLess.$("346578");
                 refreshlayout.finishLoadmore(2000);
             }
         });
-
+        showList();
+        mLoadingView.setStatus(LoadingLayout.Loading);
+        requestData();
     }
 
     private void requestData() {
@@ -95,12 +106,15 @@ public class HomeFragment extends Fragment {
 
                     @Override
                     public void onNext(SelectdEntiry kaiYanSelectdEntiry) {
+                        mRefreshLayout.finishRefresh();
+                        mRefreshLayout.setLoadmoreFinished(true);
                         if (kaiYanSelectdEntiry != null) {
-                            mListData = kaiYanSelectdEntiry.getItemList();
+                            mListData.clear();
+                            mListData .addAll(kaiYanSelectdEntiry.getItemList()) ;
                             LogLess.$d("mListData.size:-------", "=========" + mListData.size());
                             if (mListData.size() > 0) {
                                 mLoadingView.setStatus(LoadingLayout.Success);
-                                showList();
+                                mAdapter.notifyDataSetChanged();
                             } else {
                                 mLoadingView.setStatus(LoadingLayout.Empty);
                             }
@@ -109,6 +123,8 @@ public class HomeFragment extends Fragment {
 
                     @Override
                     public void onError(Throwable e) {
+                        mRefreshLayout.finishRefresh();
+                        mRefreshLayout.setLoadmoreFinished(true);
                         if (mListData.size() <= 0) {
                             mLoadingView.setStatus(LoadingLayout.No_Network);
                             mLoadingView.setOnReloadListener(new LoadingLayout.OnReloadListener() {
@@ -133,8 +149,6 @@ public class HomeFragment extends Fragment {
 
     private void showList() {
         mAdapter = AdapterLess.$recycler(getActivity(), mListData, getHomeItemLayout(), new AdapterLess.FullRecyclerCallBack<SelectdEntiry.ItemListBean>() {
-
-
             @Override
             public void onBindViewHolder(int position, AdapterLess.RecyclerViewHolder recyclerViewHolder, SelectdEntiry.ItemListBean itemListBean) {
                 if (getItemViewType(position) == VIEW_ITEM_VIDEO_INDEX) {
