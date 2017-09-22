@@ -20,8 +20,6 @@ import com.jayfeng.lesscode.core.LogLess;
 import com.jayfeng.lesscode.core.ToastLess;
 import com.jayfeng.lesscode.core.ViewLess;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.wwssxx.kaiyan.R;
@@ -70,7 +68,6 @@ public class HomeFragment extends Fragment {
         mLoadingView = ViewLess.$(view, R.id.loading);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRefreshLayout.setEnableAutoLoadmore(true);
-        mRefreshLayout.setRefreshFooter(new BallPulseFooter(getActivity()).setSpinnerStyle(SpinnerStyle.Scale));
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
@@ -79,14 +76,14 @@ public class HomeFragment extends Fragment {
                     public void run() {
                         requestData();
                     }
-                },1000);
+                }, 1000);
             }
         });
         mRefreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
             @Override
             public void onLoadmore(RefreshLayout refreshlayout) {
                 ToastLess.$("346578");
-                refreshlayout.finishLoadmore(2000);
+
             }
         });
         showList();
@@ -95,54 +92,49 @@ public class HomeFragment extends Fragment {
     }
 
     private void requestData() {
-        ConfigRepository.getInstance().getTabSelectedData(2)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<SelectdEntiry>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
+        ConfigRepository.getInstance().getTabSelectedData(2).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<SelectdEntiry>() {
+            @Override
+            public void onSubscribe(Disposable d) {
 
+            }
+
+            @Override
+            public void onNext(SelectdEntiry kaiYanSelectdEntiry) {
+                mRefreshLayout.finishRefresh();
+                if (kaiYanSelectdEntiry != null) {
+                    mListData.clear();
+                    mListData.addAll(kaiYanSelectdEntiry.getItemList());
+                    LogLess.$d("mListData.size:-------", "=========" + mListData.size());
+                    if (mListData.size() > 0) {
+                        mLoadingView.setStatus(LoadingLayout.Success);
+                        mAdapter.notifyDataSetChanged();
+                    } else {
+                        mLoadingView.setStatus(LoadingLayout.Empty);
                     }
+                }
+            }
 
-                    @Override
-                    public void onNext(SelectdEntiry kaiYanSelectdEntiry) {
-                        mRefreshLayout.finishRefresh();
-                        mRefreshLayout.setLoadmoreFinished(true);
-                        if (kaiYanSelectdEntiry != null) {
-                            mListData.clear();
-                            mListData .addAll(kaiYanSelectdEntiry.getItemList()) ;
-                            LogLess.$d("mListData.size:-------", "=========" + mListData.size());
-                            if (mListData.size() > 0) {
-                                mLoadingView.setStatus(LoadingLayout.Success);
-                                mAdapter.notifyDataSetChanged();
-                            } else {
-                                mLoadingView.setStatus(LoadingLayout.Empty);
-                            }
+            @Override
+            public void onError(Throwable e) {
+                mRefreshLayout.finishRefresh();
+                if (mListData.size() <= 0) {
+                    mLoadingView.setStatus(LoadingLayout.No_Network);
+                    mLoadingView.setOnReloadListener(new LoadingLayout.OnReloadListener() {
+                        @Override
+                        public void onReload(View v) {
+                            mLoadingView.setStatus(LoadingLayout.Loading);
+                            requestData();
                         }
-                    }
+                    });
+                }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        mRefreshLayout.finishRefresh();
-                        mRefreshLayout.setLoadmoreFinished(true);
-                        if (mListData.size() <= 0) {
-                            mLoadingView.setStatus(LoadingLayout.No_Network);
-                            mLoadingView.setOnReloadListener(new LoadingLayout.OnReloadListener() {
-                                @Override
-                                public void onReload(View v) {
-                                    mLoadingView.setStatus(LoadingLayout.Loading);
-                                    requestData();
-                                }
-                            });
-                        }
+            }
 
-                    }
+            @Override
+            public void onComplete() {
 
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+            }
+        });
 
     }
 
@@ -241,9 +233,7 @@ public class HomeFragment extends Fragment {
 
 
     private int[] getHomeItemLayout() {
-        return new int[]{
-                VIEW_ITEM_VIDEO, VIEW_ITEM_TEXT
-        };
+        return new int[]{VIEW_ITEM_VIDEO, VIEW_ITEM_TEXT};
     }
 
 
