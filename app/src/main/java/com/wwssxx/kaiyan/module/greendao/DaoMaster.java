@@ -21,30 +21,30 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
-        AuthorDao.createTable(db, ifNotExists);
-        ConsumptionDao.createTable(db, ifNotExists);
         CoverDao.createTable(db, ifNotExists);
-        FollowDao.createTable(db, ifNotExists);
-        PlayInfoDao.createTable(db, ifNotExists);
-        ProviderDao.createTable(db, ifNotExists);
         TagsDao.createTable(db, ifNotExists);
-        UrlListDao.createTable(db, ifNotExists);
+        ProviderDao.createTable(db, ifNotExists);
         VideoDao.createTable(db, ifNotExists);
+        UrlListDao.createTable(db, ifNotExists);
+        ConsumptionDao.createTable(db, ifNotExists);
+        AuthorDao.createTable(db, ifNotExists);
         WebUrlDao.createTable(db, ifNotExists);
+        PlayInfoDao.createTable(db, ifNotExists);
+        FollowDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
-        AuthorDao.dropTable(db, ifExists);
-        ConsumptionDao.dropTable(db, ifExists);
         CoverDao.dropTable(db, ifExists);
-        FollowDao.dropTable(db, ifExists);
-        PlayInfoDao.dropTable(db, ifExists);
-        ProviderDao.dropTable(db, ifExists);
         TagsDao.dropTable(db, ifExists);
-        UrlListDao.dropTable(db, ifExists);
+        ProviderDao.dropTable(db, ifExists);
         VideoDao.dropTable(db, ifExists);
+        UrlListDao.dropTable(db, ifExists);
+        ConsumptionDao.dropTable(db, ifExists);
+        AuthorDao.dropTable(db, ifExists);
         WebUrlDao.dropTable(db, ifExists);
+        PlayInfoDao.dropTable(db, ifExists);
+        FollowDao.dropTable(db, ifExists);
     }
 
     /**
@@ -63,16 +63,16 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
-        registerDaoClass(AuthorDao.class);
-        registerDaoClass(ConsumptionDao.class);
         registerDaoClass(CoverDao.class);
-        registerDaoClass(FollowDao.class);
-        registerDaoClass(PlayInfoDao.class);
-        registerDaoClass(ProviderDao.class);
         registerDaoClass(TagsDao.class);
-        registerDaoClass(UrlListDao.class);
+        registerDaoClass(ProviderDao.class);
         registerDaoClass(VideoDao.class);
+        registerDaoClass(UrlListDao.class);
+        registerDaoClass(ConsumptionDao.class);
+        registerDaoClass(AuthorDao.class);
         registerDaoClass(WebUrlDao.class);
+        registerDaoClass(PlayInfoDao.class);
+        registerDaoClass(FollowDao.class);
     }
 
     public DaoSession newSession() {
