@@ -1,6 +1,7 @@
 ## Android客户端模仿开眼视频(3年前代码，但目前依然可以正常运行)
 #### gif
-<img src="/screenshot/kaiyan.gif" style="width: 30%;">
+  <img src="screenshot/kaiyan.gif" style="width: 30%;">
+
 #### 截图
 ![Screenshot](screenshot/01.png)
 ![Screenshot](screenshot/02.png)
